@@ -7,7 +7,7 @@
             </h5>
             <h6 class="card-title"> Witten by : {{post.user.name + ' | ' + post.post_date}}</h6>
             <p class="card-text">{{ post.post_content }}</p>
-            <router-link class="btn btn-primary" :to="'/posts/' + post.id">Go to post</router-link>
+            <router-link class="btn btn-primary" :to="'/posts/' + post.slug">Go to post</router-link>
         </div>
     </div>
 </template>

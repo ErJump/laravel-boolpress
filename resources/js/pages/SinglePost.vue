@@ -29,9 +29,10 @@ export default {
     },
     methods: {
         getPost(){
-            axios.get('/api/posts/' + this.$route.params.id)
+            axios.get('/api/posts/' + this.$route.params.slug)
                 .then(response => {
                 this.post = response.data.results;
+                console.log(this.post);
                 this.isLoading = false;
             })
                 .catch(error => {

@@ -58,9 +58,9 @@ class PostController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show($slug)
     {
-        $post = Post::with('user')->find($id);
+        $post = Post::where('slug', $slug)->with('user')->first();
         if ($post) return response()->json([
             'response' => true,
             'results' => $post

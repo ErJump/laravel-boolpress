@@ -2077,8 +2077,9 @@ __webpack_require__.r(__webpack_exports__);
     getPost: function getPost() {
       var _this = this;
 
-      axios__WEBPACK_IMPORTED_MODULE_0___default.a.get('/api/posts/' + this.$route.params.id).then(function (response) {
+      axios__WEBPACK_IMPORTED_MODULE_0___default.a.get('/api/posts/' + this.$route.params.slug).then(function (response) {
         _this.post = response.data.results;
+        console.log(_this.post);
         _this.isLoading = false;
       })["catch"](function (error) {
         console.log(error);
@@ -2427,7 +2428,7 @@ var render = function render() {
   }, [_vm._v(_vm._s(_vm.post.post_content))]), _vm._v(" "), _c("router-link", {
     staticClass: "btn btn-primary",
     attrs: {
-      to: "/posts/" + _vm.post.id
+      to: "/posts/" + _vm.post.slug
     }
   }, [_vm._v("Go to post")])], 1)]);
 };
@@ -19205,7 +19206,7 @@ var router = new vue_router__WEBPACK_IMPORTED_MODULE_1__["default"]({
     name: 'about',
     component: _pages_AboutPage_vue__WEBPACK_IMPORTED_MODULE_2__["default"]
   }, {
-    path: '/posts/:id',
+    path: '/posts/:slug',
     name: 'singlepost',
     component: _pages_SinglePost_vue__WEBPACK_IMPORTED_MODULE_4__["default"]
   }, {
