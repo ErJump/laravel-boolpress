@@ -2101,13 +2101,37 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
+/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! axios */ "./node_modules/axios/index.js");
+/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(axios__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _components_LoaderComponent_vue__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../components/LoaderComponent.vue */ "./resources/js/components/LoaderComponent.vue");
+
+
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: "TagsPage",
+  components: {
+    LoaderComponent: _components_LoaderComponent_vue__WEBPACK_IMPORTED_MODULE_1__["default"]
+  },
   data: function data() {
     return {
       tags: [],
-      isLoading: true
+      isLoading: true,
+      apiUrl: '/api/tags'
     };
+  },
+  methods: {
+    getTags: function getTags() {
+      var _this = this;
+
+      axios__WEBPACK_IMPORTED_MODULE_0___default.a.get(this.apiUrl).then(function (response) {
+        _this.tags = response.data.results.data;
+        _this.isLoading = false;
+      })["catch"](function (error) {
+        console.log(error);
+      });
+    }
+  },
+  created: function created() {
+    this.getTags();
   }
 });
 
@@ -2528,7 +2552,15 @@ var render = function render() {
   var _vm = this,
       _c = _vm._self._c;
 
-  return _c("section");
+  return _c("section", {
+    staticClass: "pt-5"
+  }, [_c("div", {
+    staticClass: "container-lg"
+  }, [_vm.isLoading ? _c("LoaderComponent") : _c("div", [_c("ul", _vm._l(_vm.tags, function (tag) {
+    return _c("li", {
+      key: tag.id
+    }, [_vm._v("\n                    " + _vm._s(tag.name) + "\n                ")]);
+  }), 0)])], 1)]);
 };
 
 var staticRenderFns = [];
