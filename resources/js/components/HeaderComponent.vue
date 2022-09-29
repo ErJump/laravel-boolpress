@@ -7,11 +7,14 @@
         </button>
         <div class="collapse navbar-collapse" id="navbarNav">
             <ul class="navbar-nav">
-                <li class="nav-item active">
+                <li class="nav-item">
                     <router-link to="/" class="nav-link">Home</router-link>
                 </li>
                 <li class="nav-item">
                     <router-link to="/about" class="nav-link">About</router-link>
+                </li>
+                <li class="nav-item">
+                    <router-link to="/tags" class="nav-link">Tags</router-link>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="/admin">Back-office</a>

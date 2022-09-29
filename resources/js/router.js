@@ -6,6 +6,7 @@ Vue.use(VueRouter);
 import AboutPage from './pages/AboutPage.vue';
 import HomePage from './pages/HomePage.vue';
 import SinglePost from './pages/SinglePost.vue';
+import TagsPage from './pages/TagsPage.vue';
 
 const router = new VueRouter({
     mode: 'history',
@@ -24,6 +25,11 @@ const router = new VueRouter({
             path: '/posts/:id',
             name: 'singlepost',
             component: SinglePost
+        },
+        {
+            path: '/tags',
+            name: 'tags',
+            component: TagsPage
         }
     ]
 });
