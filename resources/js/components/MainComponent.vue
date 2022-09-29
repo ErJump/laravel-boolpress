@@ -10,7 +10,10 @@
                 <input name="postInPage" type="number" v-model="postInPage">
             </div>
             <div @click="getPosts()" class="btn btn-primary d-inline">Search</div>
-            <div class="row my-4 justify-content-center">
+            <div v-if="isLoading">
+                <LoaderComponent/>
+            </div>
+            <div v-else class="row my-4 justify-content-center">
                 <PostCard v-for="post in posts" :key="post.id" :post="post" />
             </div>
             <div class="d-flex align-items-center justify-content-around w-100">
@@ -25,10 +28,14 @@
 <script>
     import axios from 'axios'
     import PostCard from './PostCard.vue'
+    import LoaderComponent from './LoaderComponent.vue'
 
     export default {
     name: "MainComponent",
-    components: { PostCard },
+    components: { 
+        PostCard,
+        LoaderComponent
+    },
     data: function () {
         return {
             posts: [],
@@ -36,6 +43,7 @@
             titleParameter: '',
             apiUrl: '/api/posts',
             postInPage: 10,
+            isLoading: true,
         };
     },
     methods: {
@@ -55,6 +63,7 @@
             })
                 .then(response => {
                 this.posts = response.data.results.data;
+                this.isLoading = false;
             })
                 .catch(error => {
                 console.log(error);
