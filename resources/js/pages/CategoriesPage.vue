@@ -3,7 +3,16 @@
         <div class="container-lg">
             <LoaderComponent v-if="isLoading" />
             <div v-else class="row justify-content-around">
-                
+                <div class="card col-5 mb-4 px-0"  v-for="category in categories" :key="category.id">
+                    <div class="card-header text-center" :style="'background-color: ' + category.color">
+                        <strong>{{category.name}}</strong>
+                    </div>
+                    <div class="list-group list-group-flush">
+                        <router-link :to="'/category/' + category.id" class="btn btn-primary">
+                            Go to category
+                        </router-link>
+                    </div>
+                </div>
             </div>
         </div>
     </section>

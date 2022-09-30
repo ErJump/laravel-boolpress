@@ -2593,7 +2593,22 @@ var render = function render() {
     staticClass: "container-lg"
   }, [_vm.isLoading ? _c("LoaderComponent") : _c("div", {
     staticClass: "row justify-content-around"
-  })], 1)]);
+  }, _vm._l(_vm.categories, function (category) {
+    return _c("div", {
+      key: category.id,
+      staticClass: "card col-5 mb-4 px-0"
+    }, [_c("div", {
+      staticClass: "card-header text-center",
+      style: "background-color: " + category.color
+    }, [_c("strong", [_vm._v(_vm._s(category.name))])]), _vm._v(" "), _c("div", {
+      staticClass: "list-group list-group-flush"
+    }, [_c("router-link", {
+      staticClass: "btn btn-primary",
+      attrs: {
+        to: "/category/" + category.id
+      }
+    }, [_vm._v("\n                        Go to category\n                    ")])], 1)]);
+  }), 0)], 1)]);
 };
 
 var staticRenderFns = [];
