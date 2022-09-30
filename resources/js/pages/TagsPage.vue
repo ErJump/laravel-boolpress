@@ -5,10 +5,10 @@
             <div v-else>
                 <ul>
                     <li v-for="tag in tags" :key="tag.id">
-                        {{tag.name}}
+                        <router-link :to="'/tags/' + tag.id">{{tag.name}}</router-link>
                         <ul>
                             <li v-for="post in tag.posts" :key="post.id">
-                                {{post.title}}
+                                <router-link :to="'/posts/' + post.slug">{{post.title}}</router-link>
                             </li>
                         </ul>
                     </li>

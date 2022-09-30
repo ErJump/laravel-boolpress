@@ -2645,11 +2645,19 @@ var render = function render() {
   }, [_vm.isLoading ? _c("LoaderComponent") : _c("div", [_c("ul", _vm._l(_vm.tags, function (tag) {
     return _c("li", {
       key: tag.id
-    }, [_vm._v("\n                    " + _vm._s(tag.name) + "\n                    "), _c("ul", _vm._l(tag.posts, function (post) {
+    }, [_c("router-link", {
+      attrs: {
+        to: "/tags/" + tag.id
+      }
+    }, [_vm._v(_vm._s(tag.name))]), _vm._v(" "), _c("ul", _vm._l(tag.posts, function (post) {
       return _c("li", {
         key: post.id
-      }, [_vm._v("\n                            " + _vm._s(post.title) + "\n                        ")]);
-    }), 0)]);
+      }, [_c("router-link", {
+        attrs: {
+          to: "/posts/" + post.slug
+        }
+      }, [_vm._v(_vm._s(post.title))])], 1);
+    }), 0)], 1);
   }), 0)])], 1)]);
 };
 
