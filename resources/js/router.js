@@ -9,6 +9,7 @@ import SinglePost from './pages/SinglePost.vue';
 import TagsPage from './pages/TagsPage.vue';
 import SingleTag from './pages/SingleTag.vue';
 import CategoriesPage from './pages/CategoriesPage.vue';
+import PageNotFound from './pages/errors/PageNotFound.vue';
 
 const router = new VueRouter({
     mode: 'history',
@@ -42,6 +43,11 @@ const router = new VueRouter({
             path: '/categories',
             name: 'categories',
             component: CategoriesPage
+        },
+        {
+            path: '*',
+            name: '404',
+            component: PageNotFound
         }
     ]
 });
