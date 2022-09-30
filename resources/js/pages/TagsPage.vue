@@ -6,6 +6,11 @@
                 <ul>
                     <li v-for="tag in tags" :key="tag.id">
                         {{tag.name}}
+                        <ul>
+                            <li v-for="post in tag.posts" :key="post.id">
+                                {{post.title}}
+                            </li>
+                        </ul>
                     </li>
                 </ul>
             </div>

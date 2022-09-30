@@ -7,6 +7,7 @@ import AboutPage from './pages/AboutPage.vue';
 import HomePage from './pages/HomePage.vue';
 import SinglePost from './pages/SinglePost.vue';
 import TagsPage from './pages/TagsPage.vue';
+import SingleTag from './pages/SingleTag.vue';
 
 const router = new VueRouter({
     mode: 'history',
@@ -23,13 +24,18 @@ const router = new VueRouter({
         },
         {
             path: '/posts/:slug',
-            name: 'singlepost',
+            name: 'singlePost',
             component: SinglePost
         },
         {
             path: '/tags',
             name: 'tags',
             component: TagsPage
+        },
+        {
+            path: '/tags/:id',
+            name: 'singleTag',
+            component: SingleTag
         }
     ]
 });
