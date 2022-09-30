@@ -8,6 +8,7 @@ import HomePage from './pages/HomePage.vue';
 import SinglePost from './pages/SinglePost.vue';
 import TagsPage from './pages/TagsPage.vue';
 import SingleTag from './pages/SingleTag.vue';
+import CategoriesPage from './pages/CategoriesPage.vue';
 
 const router = new VueRouter({
     mode: 'history',
@@ -36,6 +37,11 @@ const router = new VueRouter({
             path: '/tags/:id',
             name: 'singleTag',
             component: SingleTag
+        },
+        {
+            path: '/categories',
+            name: 'categories',
+            component: CategoriesPage
         }
     ]
 });

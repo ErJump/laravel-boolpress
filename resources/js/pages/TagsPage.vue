@@ -37,7 +37,7 @@ export default {
         };
     },
     methods: {
-        getTags(){
+        getTags() {
             axios.get(this.apiUrl)
                 .then(response => {
                 this.tags = response.data.results.data;

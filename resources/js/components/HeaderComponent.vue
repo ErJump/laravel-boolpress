@@ -17,6 +17,9 @@
                     <router-link to="/tags" class="nav-link">Tags</router-link>
                 </li>
                 <li class="nav-item">
+                    <router-link to="/categories" class="nav-link">Categories</router-link>
+                </li>
+                <li class="nav-item">
                     <a class="nav-link" href="/admin">Back-office</a>
                 </li>
             </ul>
