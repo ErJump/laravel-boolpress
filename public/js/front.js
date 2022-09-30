@@ -2127,7 +2127,6 @@ __webpack_require__.r(__webpack_exports__);
 
       axios__WEBPACK_IMPORTED_MODULE_0___default.a.get('/api/tags/' + this.$route.params.id).then(function (response) {
         _this.tag = response.data.results;
-        console.log(_this.post);
         _this.isLoading = false;
       })["catch"](function (error) {
         console.log(error);
@@ -2458,7 +2457,7 @@ var render = function render() {
       _c = _vm._self._c;
 
   return _c("div", {
-    staticClass: "card col-5 m-2"
+    staticClass: "card col-5 m-2 px-0"
   }, [_c("img", {
     staticClass: "card-img-top",
     attrs: {
@@ -2605,8 +2604,8 @@ var render = function render() {
     staticClass: "container-lg pt-5"
   }, [_vm.isLoading ? _c("LoaderComponent") : _c("div", [_c("h2", {
     staticClass: "mb-3"
-  }, [_vm._v(_vm._s(_vm.tag.name))]), _vm._v(" "), _c("div", {
-    staticClass: "row"
+  }, [_vm._v("Tag: #" + _vm._s(_vm.tag.name))]), _vm._v(" "), _c("div", {
+    staticClass: "row justify-content-around"
   }, _vm._l(_vm.tag.posts, function (post) {
     return _c("PostCard", {
       key: post.id,
@@ -2642,23 +2641,32 @@ var render = function render() {
     staticClass: "pt-5"
   }, [_c("div", {
     staticClass: "container-lg"
-  }, [_vm.isLoading ? _c("LoaderComponent") : _c("div", [_c("ul", _vm._l(_vm.tags, function (tag) {
-    return _c("li", {
-      key: tag.id
+  }, [_vm.isLoading ? _c("LoaderComponent") : _c("div", {
+    staticClass: "row justify-content-around"
+  }, _vm._l(_vm.tags, function (tag) {
+    return _c("div", {
+      key: tag.id,
+      staticClass: "card col-5 mb-3 px-0"
+    }, [_c("div", {
+      staticClass: "card-header"
     }, [_c("router-link", {
       attrs: {
         to: "/tags/" + tag.id
       }
-    }, [_vm._v(_vm._s(tag.name))]), _vm._v(" "), _c("ul", _vm._l(tag.posts, function (post) {
+    }, [_c("strong", [_vm._v("#" + _vm._s(tag.name))])])], 1), _vm._v(" "), _c("ul", {
+      staticClass: "list-group list-group-flush"
+    }, _vm._l(tag.posts, function (post) {
       return _c("li", {
-        key: post.id
+        key: post.id,
+        staticClass: "list-group-item"
       }, [_c("router-link", {
+        staticClass: "text-dark",
         attrs: {
           to: "/posts/" + post.slug
         }
       }, [_vm._v(_vm._s(post.title))])], 1);
-    }), 0)], 1);
-  }), 0)])], 1)]);
+    }), 0)]);
+  }), 0)], 1)]);
 };
 
 var staticRenderFns = [];

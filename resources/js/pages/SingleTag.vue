@@ -2,8 +2,8 @@
     <section class="container-lg pt-5">
         <LoaderComponent v-if="isLoading"/>
         <div v-else>
-            <h2 class="mb-3">{{tag.name}}</h2>
-            <div class="row">
+            <h2 class="mb-3">Tag: #{{tag.name}}</h2>
+            <div class="row justify-content-around">
                 <PostCard v-for="post in tag.posts" :key="post.id" :post="post"/>
             </div>
         </div>
@@ -32,7 +32,6 @@ export default {
             axios.get('/api/tags/' + this.$route.params.id)
                 .then(response => {
                 this.tag = response.data.results;
-                console.log(this.post);
                 this.isLoading = false;
             })
                 .catch(error => {

@@ -1,18 +1,20 @@
 <template>
     <section class="pt-5">
         <div class="container-lg">
-            <LoaderComponent v-if="isLoading"/>
-            <div v-else>
-                <ul>
-                    <li v-for="tag in tags" :key="tag.id">
-                        <router-link :to="'/tags/' + tag.id">{{tag.name}}</router-link>
-                        <ul>
-                            <li v-for="post in tag.posts" :key="post.id">
-                                <router-link :to="'/posts/' + post.slug">{{post.title}}</router-link>
-                            </li>
-                        </ul>
-                    </li>
-                </ul>
+            <LoaderComponent v-if="isLoading" />
+            <div v-else class="row justify-content-around">
+                <div class="card col-5 mb-3 px-0"  v-for="tag in tags" :key="tag.id">
+                    <div class="card-header">
+                        <router-link :to="'/tags/' + tag.id">
+                            <strong>#{{tag.name}}</strong>
+                        </router-link>
+                    </div>
+                    <ul class="list-group list-group-flush">
+                        <li v-for="post in tag.posts" :key="post.id" class="list-group-item">
+                            <router-link :to="'/posts/' + post.slug" class="text-dark">{{post.title}}</router-link>
+                        </li>
+                    </ul>
+                </div>
             </div>
         </div>
     </section>

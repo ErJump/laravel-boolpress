@@ -1,5 +1,5 @@
 <template>
-    <div class="card col-5 m-2">
+    <div class="card col-5 m-2 px-0">
         <img class="card-img-top" :src="post.post_image" alt="Image">
         <div class="card-body">
             <h5 class="card-title">
